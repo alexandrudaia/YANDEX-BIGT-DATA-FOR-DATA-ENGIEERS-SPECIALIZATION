@@ -1,0 +1,47 @@
+""ALex Francoise "
+
+
+
+File system  functions :
+           ----> store  data
+           ----> control data
+           ----> retrieve data
+Bash :
+
+* command interpreter 
+* programming language 
+* command processor  that  typically  runs in a  text window 
+* actions 
+* can also read and  execute commands   from a file   called a script
+
+File system  usual commands :
+>ls
+>cd
+>pwd 
+>du 
+>tail and   head   work  with   -n    meaning  last or  first rows
+>less  very good  for exploration  allows  scrolling
+>wc word counts  very  good for    natural lanuage processing 
+
+"""functionality  for   vim editor """"
+ex1) colorschume  darkblue
+ex2) set shiftwidht =4
+ex3) set smarttab
+ex4) set expandtab
+************************Interesting :
+                                    -cut -d " " -f1 file 
+                                     displays first column  -f2 second col
+                cat /usr/share/matplotlib/sample_data/aapl.csv | tr -d ',' |head -10
+                      the  tre   drops   the  eleme
+sort  -k2,2  -r  file.txt
+
+awk Bell Labs  1970
+interpreting   programming language  text processing 
+
+ awk -F ' ' '{print $1"s", $2*10}' file.txt
+
+
+
+
+
+
