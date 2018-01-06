@@ -1,0 +1,20 @@
+pip install docker
+docker pull bigdatateam/hdfs-notebook:0.3
+Start a Tmux session:
+           tmux new -s my_docker
+Run your container in terminal opened:
+ docker run --rm  -it -p 8888:8888 -p 50070:50070 -p 8088:8088 bigdatateam/hdfs-notebook
+3. Detach the Tmux session by typing "Ctrl+b" and then "d".
+docker ps
+docker exec -it <YOUR_CONTAINER_ID> /bin/bash
+##########################################################################
+sudo su
+docker  ps  gives  the following  information  including my container id:
+CONTAINER ID        IMAGE                       COMMAND                  CREATED             STATUS              PORTS                                                                      NAMES
+3ecdef06e259        bigdatateam/hdfs-notebook   "/etc/start.sh sta..."   10 hours ago        Up 10 hours         0.0.0.0:8088->8088/tcp, 0.0.0.0:8888->8888/tcp, 0.0.0.0:50070->50070/tcp   nifty_agnesi
+##########################################################################
+Finally I  can open the   terminal within the container  by executing :
+ docker exec -it 3ecdef06e259  /bin/bash
+
+Now  i  have loged in  the  container  as root and I could excecute  Hadoop commands 
+hdfs   dfs -ls /data
