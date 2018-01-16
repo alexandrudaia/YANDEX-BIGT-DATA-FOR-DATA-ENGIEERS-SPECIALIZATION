@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<!-- saved from url=(0577)https://render.githubusercontent.com/view/ipynb?commit=92d99a74e3ce4913db6fa3ff5cd85a6958b578ab&enc_url=68747470733a2f2f7261772e67697468756275736572636f6e74656e742e636f6d2f4d6178526963687465722f426967446174612d44617461456e67696e656572732f393264393961373465336365343931336462366661336666356364383561363935386235373861622f315f4269675f446174615f457373656e7469616c732f5765656b5f312f5765656b312e6970796e62&nwo=MaxRichter%2FBigData-DataEngineers&path=1_Big_Data_Essentials%2FWeek_1%2FWeek1.ipynb&repository_id=110536963&repository_type=Repository#fe337653-b1c3-4fc9-a4a9-6e90a64a248d -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Render</title>
+  <meta name="referrer" content="never">
+    <script async="" src="./analytics.js"></script><script src="./ipynb-e71580039d8a38e1c640682118c4d114.js"></script><link rel="stylesheet" href="./ipynb-c47447281494c3bc673c27fa8fa55be4.css">
+
+
+</head>
+<body class="" data-render-url="https://render.githubusercontent.com" data-github-hostname="github.com" style="">
+  <div class="render-shell js-render-shell" data-document-nwo="MaxRichter/BigData-DataEngineers" data-document-commit="92d99a74e3ce4913db6fa3ff5cd85a6958b578ab" data-document-path="1_Big_Data_Essentials/Week_1/Week1.ipynb" data-file="https://github-render.s3.amazonaws.com/prod/456cf414d283bee7e16d5010e8fdd8d2-render.html?AWSAccessKeyId=AKIAJILR36AMCOMBK3MQ&amp;Signature=UGDUOku7oQnOkVeVhFT43caTm7Y%3D&amp;Expires=1515211921" data-meta="https://github-render.s3.amazonaws.com/prod/456cf414d283bee7e16d5010e8fdd8d2-meta.json?AWSAccessKeyId=AKIAJILR36AMCOMBK3MQ&amp;Signature=sbqb0FqlXsTffOUUie57YPWVKak%3D&amp;Expires=1515211921">
+    
+
+<div class="render-info">
+  <div class="js-viewer-health render-health is-viewer-good">
+    <span class="symbol">⊖</span>
+    <span class="js-message message">Everything running smoothly!</span>
+  </div>
+</div>
+
+<div id="notebook" class="js-html">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>File Exploration<a class="anchor-link" href="https://render.githubusercontent.com/view/ipynb?commit=92d99a74e3ce4913db6fa3ff5cd85a6958b578ab&amp;enc_url=68747470733a2f2f7261772e67697468756275736572636f6e74656e742e636f6d2f4d6178526963687465722f426967446174612d44617461456e67696e656572732f393264393961373465336365343931336462366661336666356364383561363935386235373861622f315f4269675f446174615f457373656e7469616c732f5765656b5f312f5765656b312e6970796e62&amp;nwo=MaxRichter%2FBigData-DataEngineers&amp;path=1_Big_Data_Essentials%2FWeek_1%2FWeek1.ipynb&amp;repository_id=110536963&amp;repository_type=Repository#File-Exploration">¶</a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span>%%bash
+hdfs dfs -ls /
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Found 2 items
+drwxr-xr-x   - root supergroup          0 2017-10-15 16:30 /data
+drwxr-xr-x   - root supergroup          0 2017-10-15 12:23 /user
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="err">!</span> <span class="n">hdfs</span> <span class="n">dfs</span> <span class="o">-</span><span class="n">ls</span> <span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">wiki</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Found 1 items
+drwxrwxrwx   - jovyan supergroup          0 2017-10-15 16:30 /data/wiki/en_articles_part
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="err">!</span> <span class="n">hdfs</span> <span class="n">dfs</span> <span class="o">-</span><span class="n">du</span> <span class="o">-</span><span class="n">h</span> <span class="o">/</span><span class="n">data</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>73.3 M  /data/wiki
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>Task 1<a class="anchor-link" href="https://render.githubusercontent.com/view/ipynb?commit=92d99a74e3ce4913db6fa3ff5cd85a6958b578ab&amp;enc_url=68747470733a2f2f7261772e67697468756275736572636f6e74656e742e636f6d2f4d6178526963687465722f426967446174612d44617461456e67696e656572732f393264393961373465336365343931336462366661336666356364383561363935386235373861622f315f4269675f446174615f457373656e7469616c732f5765656b5f312f5765656b312e6970796e62&amp;nwo=MaxRichter%2FBigData-DataEngineers&amp;path=1_Big_Data_Essentials%2FWeek_1%2FWeek1.ipynb&amp;repository_id=110536963&amp;repository_type=Repository#Task-1">¶</a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Estimate</span> <span class="n">minimum</span> <span class="n">Namenode</span> <span class="n">RAM</span> <span class="n">size</span> <span class="k">for</span> <span class="n">HDFS</span> <span class="k">with</span> <span class="mi">1</span> <span class="n">PB</span> <span class="n">capacity</span><span class="p">,</span> 
+<span class="n">block</span> <span class="n">size</span> <span class="mi">64</span> <span class="n">MB</span><span class="p">,</span> <span class="n">average</span> <span class="n">metadata</span> <span class="n">size</span> <span class="k">for</span> <span class="n">each</span> <span class="n">block</span> <span class="ow">is</span> <span class="mi">300</span> <span class="n">B</span><span class="p">,</span> <span class="n">replication</span> <span class="n">factor</span> <span class="ow">is</span> <span class="mf">3.</span> 
+<span class="n">Provide</span> <span class="n">the</span> <span class="n">formula</span> <span class="k">for</span> <span class="n">calculations</span> <span class="ow">and</span> <span class="n">the</span> <span class="n">result</span><span class="o">.</span>
+
+<span class="n">RAM</span><span class="p">:</span> <span class="mi">10</span> <span class="n">Pb</span> <span class="o">/</span> <span class="p">(</span><span class="mi">128</span> <span class="n">Mb</span> <span class="o">*</span> <span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="mi">150</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span><span class="mi">906</span><span class="p">,</span><span class="mi">250</span><span class="p">,</span><span class="mi">000</span> <span class="o">~=</span> <span class="mf">3.9</span><span class="n">Gb</span>
+<span class="c1"># 10000000000000000/(128*3)*150</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Solution</span>
+
+<span class="n">Check</span> <span class="n">the</span> <span class="n">formula</span> <span class="ow">and</span> <span class="n">the</span> <span class="n">result</span><span class="p">,</span> <span class="n">they</span> <span class="n">should</span> <span class="n">both</span> <span class="n">be</span> <span class="n">correct</span><span class="o">.</span>
+<span class="mi">1</span> <span class="n">PB</span> <span class="o">/</span> <span class="mi">64</span> <span class="n">MB</span> <span class="o">/</span> <span class="mi">3</span> <span class="o">*</span> <span class="mi">300</span> <span class="n">B</span> <span class="o">=</span> <span class="mi">1024</span> <span class="o">*</span> <span class="mi">1024</span> <span class="o">*</span> <span class="mi">1024</span> <span class="o">/</span> <span class="mi">64</span> <span class="o">/</span> <span class="mi">3</span> <span class="o">*</span> <span class="mi">300</span> <span class="o">=</span> <span class="mi">1600</span> <span class="n">MB</span>
+
+<span class="n">The</span> <span class="n">result</span> <span class="n">can</span> <span class="ow">not</span> <span class="n">be</span> <span class="n">exactly</span> <span class="n">the</span> <span class="n">same</span><span class="p">,</span> <span class="n">rounding</span> <span class="ow">and</span> <span class="n">other</span> <span class="n">units</span> <span class="n">are</span> <span class="n">possible</span><span class="o">.</span> <span class="n">So</span> <span class="mi">1600</span> <span class="n">MB</span><span class="p">,</span> <span class="mf">1.6</span> <span class="n">GB</span><span class="p">,</span> <span class="mf">1.56</span> <span class="n">GB</span> <span class="n">are</span> <span class="nb">all</span> <span class="n">allowed</span><span class="o">.</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>Task 2<a class="anchor-link" href="https://render.githubusercontent.com/view/ipynb?commit=92d99a74e3ce4913db6fa3ff5cd85a6958b578ab&amp;enc_url=68747470733a2f2f7261772e67697468756275736572636f6e74656e742e636f6d2f4d6178526963687465722f426967446174612d44617461456e67696e656572732f393264393961373465336365343931336462366661336666356364383561363935386235373861622f315f4269675f446174615f457373656e7469616c732f5765656b5f312f5765656b312e6970796e62&amp;nwo=MaxRichter%2FBigData-DataEngineers&amp;path=1_Big_Data_Essentials%2FWeek_1%2FWeek1.ipynb&amp;repository_id=110536963&amp;repository_type=Repository#Task-2">¶</a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">HDDs</span> <span class="ow">in</span> <span class="n">your</span> <span class="n">cluster</span> <span class="n">have</span> <span class="n">the</span> <span class="n">following</span> <span class="n">characteristics</span><span class="p">:</span> 
+    <span class="n">Average</span> <span class="n">reading</span> <span class="n">speed</span> <span class="ow">is</span> <span class="mi">60</span> <span class="n">MB</span><span class="o">/</span><span class="n">s</span><span class="p">,</span> <span class="n">seek</span> <span class="n">time</span> <span class="ow">is</span> <span class="mi">5</span> <span class="n">ms</span><span class="o">.</span> 
+    <span class="n">You</span> <span class="n">want</span> <span class="n">to</span> <span class="n">spend</span> <span class="mf">0.5</span><span class="o">%</span> <span class="n">time</span> <span class="k">for</span> <span class="n">seeking</span> <span class="n">the</span> <span class="n">block</span><span class="p">,</span> 
+    <span class="n">i</span><span class="o">.</span><span class="n">e</span><span class="o">.</span> <span class="n">seek</span> <span class="n">time</span> <span class="n">should</span> <span class="n">be</span> <span class="mi">200</span> <span class="n">times</span> <span class="n">less</span> <span class="n">than</span> <span class="n">the</span> <span class="n">time</span> <span class="n">to</span> <span class="n">read</span> <span class="n">the</span> <span class="n">block</span><span class="o">.</span> 
+<span class="n">Estimate</span> <span class="n">the</span> <span class="n">minimum</span> <span class="n">block</span> <span class="n">size</span><span class="o">.</span>
+
+<span class="mf">3.5</span><span class="n">GB</span><span class="o">/</span><span class="n">sec</span> <span class="err">→</span> <span class="mi">128</span><span class="n">Mb</span> <span class="p">:</span> <span class="mi">30</span><span class="o">-</span><span class="mi">40</span><span class="n">ms</span><span class="o">.</span> 
+
+<span class="mi">1</span><span class="n">Gb</span> <span class="o">=</span> <span class="mi">1000</span><span class="n">Mb</span>
+<span class="mf">3.5</span><span class="n">Gb</span> <span class="o">=</span> <span class="mi">3500</span><span class="n">Mb</span>
+<span class="mi">1</span> <span class="n">second</span> <span class="o">=</span> <span class="mi">1000</span> <span class="n">millisecond</span>
+
+<span class="mi">3500</span><span class="n">Mb</span> <span class="o">=</span> <span class="mi">1</span><span class="n">sec</span>
+<span class="mi">128</span><span class="n">Mb</span> <span class="o">=</span> <span class="p">(</span><span class="mi">32</span><span class="o">/</span><span class="mi">875</span><span class="p">)</span><span class="n">sec</span> <span class="o">=</span> <span class="mf">0.03657</span> <span class="n">sec</span>
+
+<span class="mi">1</span> <span class="n">second</span> <span class="o">=</span> <span class="mi">1000</span> <span class="n">millisecond</span>
+<span class="mf">0.03657</span> <span class="n">sec</span> <span class="o">=</span> <span class="mf">36.57</span> <span class="n">millisecond</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_text output_error">
+<pre><span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">"&lt;ipython-input-14-037e9a206a6e&gt;"</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">1</span>
+<span class="ansi-red-fg">    2) HDDs in your cluster have the following characteristics:</span>
+     ^
+<span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> invalid syntax
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Solution</span>
+<span class="n">Check</span> <span class="n">the</span> <span class="n">calculations</span> <span class="ow">and</span> <span class="n">the</span> <span class="n">result</span><span class="p">,</span> <span class="n">they</span> <span class="n">should</span> <span class="n">both</span> <span class="n">be</span> <span class="n">correct</span><span class="o">.</span>
+
+<span class="n">block_size</span> <span class="o">/</span> <span class="mi">60</span> <span class="n">MB</span><span class="o">/</span><span class="n">s</span> <span class="o">*</span> <span class="mf">0.5</span> <span class="o">/</span> <span class="mi">100</span> <span class="o">&gt;=</span> <span class="mi">5</span> <span class="n">ms</span>
+<span class="n">block_size</span> <span class="o">&gt;=</span> <span class="mi">60</span> <span class="n">MB</span><span class="o">/</span><span class="n">s</span> <span class="o">*</span> <span class="mf">0.005</span> <span class="n">s</span> <span class="o">/</span> <span class="mf">0.005</span> <span class="o">=</span> <span class="mi">60</span> <span class="n">MB</span>
+
+<span class="n">So</span><span class="p">,</span> <span class="n">the</span> <span class="n">minimum</span> <span class="n">block</span> <span class="n">size</span> <span class="ow">is</span> <span class="mi">60</span> <span class="n">MB</span> <span class="ow">or</span> <span class="mi">64</span> <span class="n">MB</span><span class="o">.</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>Task 3<a class="anchor-link" href="https://render.githubusercontent.com/view/ipynb?commit=92d99a74e3ce4913db6fa3ff5cd85a6958b578ab&amp;enc_url=68747470733a2f2f7261772e67697468756275736572636f6e74656e742e636f6d2f4d6178526963687465722f426967446174612d44617461456e67696e656572732f393264393961373465336365343931336462366661336666356364383561363935386235373861622f315f4269675f446174615f457373656e7469616c732f5765656b5f312f5765656b312e6970796e62&amp;nwo=MaxRichter%2FBigData-DataEngineers&amp;path=1_Big_Data_Essentials%2FWeek_1%2FWeek1.ipynb&amp;repository_id=110536963&amp;repository_type=Repository#Task-3">¶</a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Create</span> <span class="n">text</span> <span class="n">file</span> <span class="err">‘</span><span class="n">test</span><span class="o">.</span><span class="n">txt</span><span class="err">’</span> <span class="ow">in</span> <span class="n">a</span> <span class="n">local</span> <span class="n">fs</span><span class="o">.</span> <span class="n">Use</span> <span class="n">HDFS</span> <span class="n">CLI</span> <span class="n">to</span> <span class="n">make</span> <span class="n">the</span> <span class="n">following</span> <span class="n">operations</span><span class="p">:</span>
+
+<span class="n">Create</span> <span class="n">directory</span> <span class="err">‘</span><span class="n">assignment1</span><span class="err">’</span> <span class="ow">in</span> <span class="n">your</span> <span class="n">home</span> <span class="n">directory</span> <span class="ow">in</span> <span class="n">HDFS</span> <span class="p">(</span><span class="o">/</span><span class="n">user</span><span class="o">/&lt;</span><span class="n">your_name</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="n">put</span> <span class="n">test</span><span class="o">.</span><span class="n">txt</span> <span class="ow">in</span> <span class="n">it</span>
+<span class="n">output</span> <span class="n">the</span> <span class="n">size</span> <span class="ow">and</span> <span class="n">the</span> <span class="n">owner</span> <span class="n">of</span> <span class="n">the</span> <span class="n">file</span>
+<span class="n">revoke</span> <span class="err">‘</span><span class="n">read</span><span class="err">’</span> <span class="n">permission</span> <span class="k">for</span> <span class="err">‘</span><span class="n">other</span> <span class="n">users</span><span class="err">’</span>
+<span class="n">read</span> <span class="n">the</span> <span class="n">first</span> <span class="mi">10</span> <span class="n">lines</span> <span class="n">of</span> <span class="n">the</span> <span class="n">file</span>
+<span class="n">rename</span> <span class="n">it</span> <span class="n">to</span> <span class="err">‘</span><span class="n">test2</span><span class="o">.</span><span class="n">txt</span><span class="err">’</span><span class="o">.</span>
+<span class="n">Provide</span> <span class="nb">all</span> <span class="n">the</span> <span class="n">commands</span> <span class="n">to</span> <span class="n">HDFS</span> <span class="n">CLI</span><span class="o">.</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Solution:</span>
+
+<span class="c1"># In local file system create test.txt</span>
+<span class="n">touch</span> <span class="n">text</span><span class="o">.</span><span class="n">txt</span>
+
+<span class="c1">#сreate directory ‘assignment1’ in your home directory in HDFS (/user/&lt;your_name&gt;)</span>
+<span class="n">hdfs</span> <span class="n">dfs</span> <span class="o">-</span><span class="n">mkdir</span> <span class="o">-</span><span class="n">p</span> <span class="s1">'/user/jovyan/assignment1'</span>
+
+<span class="c1"># put test.txt in it</span>
+<span class="n">hdfs</span> <span class="n">dfs</span> <span class="o">-</span><span class="n">put</span> <span class="s1">'text.txt'</span> <span class="s1">'/user/jovyan/assignment1/text.txt'</span>
+
+<span class="c1"># output the size and the owner of the file</span>
+<span class="n">hdfs</span> <span class="n">dfs</span> <span class="o">-</span><span class="n">ls</span> <span class="o">-</span><span class="n">h</span> <span class="s1">'/user/jovyan/assignment1/text.txt'</span>
+
+<span class="c1"># revoke ‘read’ permission for ‘other users’</span>
+<span class="n">hdfs</span> <span class="n">dfs</span> <span class="o">-</span><span class="n">chmod</span> <span class="n">o</span><span class="o">-</span><span class="n">r</span> <span class="s1">'/user/jovyan/assignment1/text.txt'</span>
+
+<span class="c1"># read the first 10 lines of the file</span>
+<span class="n">hdfs</span> <span class="n">dfs</span> <span class="o">-</span><span class="n">cat</span> <span class="s1">'/user/jovyan/assignment1/text.txt'</span> <span class="o">|</span> <span class="n">head</span> <span class="o">-</span><span class="mi">10</span>
+
+<span class="c1"># rename it to ‘test2.txt’</span>
+<span class="n">hdfs</span> <span class="n">dfs</span> <span class="o">-</span><span class="n">mv</span> <span class="s1">'/user/jovyan/assignment1/text.txt'</span> <span class="s1">'/user/jovyan/assignment1/text2.txt'</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>Task 4<a class="anchor-link" href="https://render.githubusercontent.com/view/ipynb?commit=92d99a74e3ce4913db6fa3ff5cd85a6958b578ab&amp;enc_url=68747470733a2f2f7261772e67697468756275736572636f6e74656e742e636f6d2f4d6178526963687465722f426967446174612d44617461456e67696e656572732f393264393961373465336365343931336462366661336666356364383561363935386235373861622f315f4269675f446174615f457373656e7469616c732f5765656b5f312f5765656b312e6970796e62&amp;nwo=MaxRichter%2FBigData-DataEngineers&amp;path=1_Big_Data_Essentials%2FWeek_1%2FWeek1.ipynb&amp;repository_id=110536963&amp;repository_type=Repository#Task-4">¶</a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Use</span> <span class="n">HDFS</span> <span class="n">CLI</span> <span class="n">to</span> <span class="n">investigate</span> <span class="n">the</span> <span class="n">file</span> <span class="err">‘</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">wiki</span><span class="o">/</span><span class="n">en_articles_part</span><span class="o">/</span><span class="n">articles</span><span class="o">-</span><span class="n">part</span><span class="err">’</span> <span class="ow">in</span> <span class="n">HDFS</span><span class="p">:</span>
+
+<span class="o">-</span> <span class="n">Get</span> <span class="n">blocks</span> <span class="ow">and</span> <span class="n">their</span> <span class="n">locations</span> <span class="ow">in</span> <span class="n">HDFS</span> <span class="k">for</span> <span class="n">this</span> <span class="n">file</span><span class="p">,</span> <span class="n">show</span> <span class="n">the</span> <span class="n">command</span> <span class="n">without</span> <span class="n">an</span> <span class="n">output</span>
+<span class="o">-</span> <span class="n">Get</span> <span class="n">the</span> <span class="n">information</span> <span class="n">about</span> <span class="nb">any</span> <span class="n">block</span> <span class="n">of</span> <span class="n">the</span> <span class="n">file</span><span class="p">,</span> <span class="n">show</span> <span class="n">the</span> <span class="n">command</span> <span class="ow">and</span> <span class="n">the</span> <span class="n">block</span> <span class="n">locations</span> <span class="kn">from</span> <span class="nn">the</span> <span class="n">output</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Solution:</span>
+    
+<span class="n">Blocks</span> <span class="ow">and</span> <span class="n">locations</span> <span class="n">of</span> <span class="err">‘</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">wiki</span><span class="o">/</span><span class="n">en_articles_part</span><span class="o">/</span><span class="n">articles</span><span class="o">-</span><span class="n">part</span><span class="err">’</span><span class="p">:</span>
+<span class="err">$</span> <span class="n">hdfs</span> <span class="n">fsck</span> <span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">wiki</span><span class="o">/</span><span class="n">en_articles_part</span><span class="o">/</span><span class="n">articles</span><span class="o">-</span><span class="n">part</span> <span class="o">-</span><span class="n">files</span> <span class="o">-</span><span class="n">blocks</span> <span class="o">-</span><span class="n">locations</span>
+
+<span class="n">Block</span> <span class="n">information</span> <span class="p">(</span><span class="n">block</span> <span class="nb">id</span> <span class="n">may</span> <span class="n">be</span> <span class="n">different</span><span class="p">):</span>
+<span class="err">$</span> <span class="n">hdfs</span> <span class="n">fsck</span> <span class="o">-</span><span class="n">blockId</span> <span class="n">blk_1073971670</span>
+
+<span class="n">It</span> <span class="n">outputs</span> <span class="n">the</span> <span class="n">block</span> <span class="n">locations</span><span class="p">,</span> <span class="n">example</span> <span class="p">(</span><span class="n">nodes</span> <span class="nb">list</span> <span class="n">will</span> <span class="n">be</span> <span class="n">different</span><span class="p">):</span>
+<span class="n">Block</span> <span class="n">replica</span> <span class="n">on</span> <span class="n">datanode</span><span class="o">/</span><span class="n">rack</span><span class="p">:</span> <span class="n">some_node_hostname</span><span class="o">/</span><span class="n">default</span><span class="o">-</span><span class="n">rack</span> <span class="ow">is</span> <span class="n">HEALTHY</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>Task 5<a class="anchor-link" href="https://render.githubusercontent.com/view/ipynb?commit=92d99a74e3ce4913db6fa3ff5cd85a6958b578ab&amp;enc_url=68747470733a2f2f7261772e67697468756275736572636f6e74656e742e636f6d2f4d6178526963687465722f426967446174612d44617461456e67696e656572732f393264393961373465336365343931336462366661336666356364383561363935386235373861622f315f4269675f446174615f457373656e7469616c732f5765656b5f312f5765656b312e6970796e62&amp;nwo=MaxRichter%2FBigData-DataEngineers&amp;path=1_Big_Data_Essentials%2FWeek_1%2FWeek1.ipynb&amp;repository_id=110536963&amp;repository_type=Repository#Task-5">¶</a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Look</span> <span class="n">at</span> <span class="n">the</span> <span class="n">picture</span> <span class="n">of</span> <span class="n">Namenode</span> <span class="n">web</span> <span class="n">interface</span><span class="o">.</span>
+<span class="n">Show</span> <span class="n">the</span> <span class="n">total</span> <span class="n">capacity</span> <span class="n">of</span> <span class="n">this</span> <span class="n">HDFS</span> <span class="n">installation</span><span class="p">,</span> <span class="n">used</span> <span class="n">space</span> <span class="ow">and</span> <span class="n">total</span> <span class="n">data</span> <span class="n">nodes</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">cluster</span><span class="o">.</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Solution:</span>
+    
+<span class="mi">1</span><span class="p">)</span> <span class="n">Total</span> <span class="n">capacity</span> <span class="n">of</span> <span class="n">this</span> <span class="n">HDFS</span> <span class="n">installation</span><span class="p">:</span> 
+    <span class="n">Configured</span> <span class="n">Capacity</span><span class="p">:</span> <span class="mf">2.14</span><span class="n">TB</span>
+<span class="mi">2</span><span class="p">)</span> <span class="n">Used</span> <span class="n">space</span><span class="p">:</span> 
+    <span class="n">DFS</span> <span class="n">used</span><span class="p">:</span> <span class="mf">242.12</span> <span class="n">Gb</span>
+<span class="mi">3</span><span class="p">)</span> <span class="n">Total</span> <span class="n">data</span> <span class="n">nodes</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">cluster</span><span class="p">:</span>
+    <span class="n">Live</span> <span class="n">Nodes</span><span class="p">:</span> <span class="mi">4</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+ 
+
+</div>
+
+  </div>
+
+  
+
+
+
+</body></html>

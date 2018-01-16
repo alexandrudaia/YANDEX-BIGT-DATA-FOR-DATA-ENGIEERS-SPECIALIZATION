@@ -1,0 +1,65 @@
+docker run --rm -it -p 8888:8888 -p 50070:50070 -p 8088:8088 bigdatateam/hdfs-notebook
+docker ps
+docker exec -it <YOUR_CONTAINER_ID> /bin/bash
+HADOOP_STREAMING_JAR='/opt/hadoop/share/hadoop/tools/lib/hadoop-streaming-2.8.1.jar'
+yarn jar $HADOOP_STREAMING_JAR \
+ -mapper 'wc -l' \
+ -numReduceTasks 0 \
+ -input /data/wiki/en_articles_part/articles-part \
+ -output wc_mr
+
+
+
+
+
+####################Analyzin    wc_mr    file  #######################################
+
+cleaning up  the folder 
+hdfs  df -rm -r   wc_mr
+
+####
+ inspecting the  file  :
+
+hdfs  dfs -ls  wc_mr ( which  is actually a folder)
+contains  some first   file  meaning succes at a particular address 
+contains  also     2  files  with information this meaning  that there  where  exectuted  2 mappers  for  the  wikipedia dump file :
+wc_mr/part-00000  meaning  mapper  1
+wc_mr/part-00001  meaning mapper  2
+
+if  we do :
+              hdfs dfs  -text  wc_mr/* will display :
+                                                     1986 and  2114 
+###############################################DOING  NOW   LINE COUNT IN A CORRECTO  MA REDUCE WAY ###############################
+HADOOP_STREAMING_JAR='/opt/hadoop/share/hadoop/tools/lib/hadoop-streaming-2.8.1.jar'
+yarn jar $HADOOP_STREAMING_JAR \
+ -mapper 'wc -l' \
+ -reducer "awk '{line_count+=\$1} END {print line_count}'" \
+ -numReduceTasks 2 \
+ -input /data/wiki/en_articles_part/articles-part \
+ -output wc_mr_with_reducere
+#################inspecting the file :     results  in   only 1  mapper  
+hdfs  dfs -ls  wc_mr_with_reducere
+INFORMATION INS  F FILE :
+hdfs  dfs -text wc_mr_with_reducere/*
+4100  means   the reducere aggregates  data
+
+#####################################################################################################
+
+using  shell  script :
+ vim   reducer.sh
+#!/usr/bin/env bash 
+
+awk '{line_count+=$1} END { print line_count}'
+
+
+
+
+HADOOP_STREAMING_JAR='/opt/hadoop/share/hadoop/tools/lib/hadoop-streaming-2.8.1.jar'
+yarn jar $HADOOP_STREAMING_JAR \
+ -mapper 'wc -l' \
+ -reducer './reducer.sh' \
+ -file reducer.sh \
+ -numReduceTasks 1 \
+ -input /data/wiki/en_articles_part/articles-part \
+ -output wc_mr_with_reducer_shell
+

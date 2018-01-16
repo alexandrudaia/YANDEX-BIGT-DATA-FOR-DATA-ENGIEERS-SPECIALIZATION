@@ -1,0 +1,76 @@
+mapper.py
+
+from __future__ import print_function
+import sys
+for line in sys.stdin:
+    article_id, content = line.split("\t", 1)
+    words = content.split()
+    for word in words:
+        print(word, 1, sep="\t")
+
+
+
+HADOOP_STREAMING_JAR='/opt/hadoop/share/hadoop/tools/lib/hadoop-streaming-2.8.1.jar'
+yarn jar $HADOOP_STREAMING_JAR \
+ -files mapper.py \
+ -mapper 'python mapper.py' \
+ -numReduceTasks 0 \
+ -input /data/wiki/en_articles_part/articles-part \
+ -output word_countx11
+
+
+########### analyzing   output  file  and the  text 
+hdfs  dfs  -text /data/wiki/en_articles_part/*	| head -c 80
+hdfs dfs -ls -h word_countx11
+hdfs dfs -text word_countx11/part-00000 | head -5
+Basel	1
+Basel	1
+(	1
+)	1
+or	1
+hdfs dfs -text word_countx11/part-00001 | head -5
+
+Anarchism	1
+Anarchism	1
+is	1
+often	1
+defined	1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!IF USING   1  REDUCER WIL   SHUFLE  AND SORT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+#######################################################Python  reducer.py ##################################################################
+reducer.py
+from __future__ import print_function
+import sys
+current_word = None
+word_count = 0
+for line in sys.stdin:
+     word, counts = line.split("\t", 1)
+     counts = int(counts)
+     if word == current_word:
+        word_count += counts
+     else:
+          if current_word:
+              print(current_word, word_count, sep="\t")
+          current_word = word
+          word_count = counts
+if current_word:
+   print(current_word, word_count, sep="\t")
+
+#################################################
+
+
+HADOOP_STREAMING_JAR='/opt/hadoop/share/hadoop/tools/lib/hadoop-streaming-2.8.1.jar'
+yarn jar $HADOOP_STREAMING_JAR \
+ -files mapper.py \
+ -mapper 'python mapper.py' \
+ -reducer 'python  reducer.py' \
+ -numReduceTasks 0 \
+ -input /data/wiki/en_articles_part/articles-part \
+ -output word_countx13
+                                                                                      Note  that data is sorted
+
+######
+hdfs  dfs -ls word_countx13
+
+
