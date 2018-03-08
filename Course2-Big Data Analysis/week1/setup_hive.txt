@@ -1,0 +1,4 @@
+docker pull bigdatateam/hive-course2
+docker run --rm -it -p 8888:8888 -p 50070:50070 -p 8088:8088  bigdatateam/hive-course2
+docker ps
+docker exec -it <YOUR_CONTAINER_ID> /bin/bash
